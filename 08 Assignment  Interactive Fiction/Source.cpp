@@ -15,8 +15,9 @@ using namespace std;
 string GetCharacterName();
 void welcomeUser(string CharacterName);
 void openingStory(string CharacterName);
-string getMurderWeapon();
-
+//string getMurderWeapon();
+int weapons;
+int body;
 
 
 int main()
@@ -31,7 +32,18 @@ int main()
 
 	openingStory(CharacterName);
 
-	getMurderWeapon();
+	//getMurderWeapon();
+
+	int play = 0;
+	do 
+	{
+		string story;
+		int choice1, choice2, choice3;
+		int randomBody;
+
+		string storyArray[3] = {}
+
+	}
 
 	
 }
@@ -64,22 +76,21 @@ void openingStory(string CharacterName)
 }
 
 
-//taken from the CIA assessment
 //tring to find a why to make it so the player has to see a random story and
 //then guess the right weapon used in the crime
 
-string getMurderWeapon()
-{
-	//Create a collection of 10 words you had wrote down manually
-	vector<string> weapons;  //collection of possible words to guess
-	weapons.push_back("GUN");
-	weapons.push_back("KNIFE");
-	weapons.push_back("BAT");
+//string getMurderWeapon()
+//{
+	////Create a collection of 10 words you had wrote down manually
+	//vector<string> weapons;  //collection of possible words to guess
+	//weapons.push_back("GUN");
+	//weapons.push_back("KNIFE");
+	//weapons.push_back("BAT");
 
-	srand(static_cast<unsigned int>(time(0)));
-	random_shuffle(weapons.begin(), weapons.end());
+	//srand(static_cast<unsigned int>(time(0)));
+	//random_shuffle(weapons.begin(), weapons.end());
 	
 
-	return string();
-}
+	//return string();
+//}
 
