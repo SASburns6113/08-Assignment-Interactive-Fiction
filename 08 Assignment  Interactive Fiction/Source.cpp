@@ -15,6 +15,7 @@ using namespace std;
 string GetCharacterName();
 void welcomeUser(string CharacterName);
 void openingStory(string CharacterName);
+string getMurderWeapon();
 
 
 
@@ -30,13 +31,12 @@ int main()
 
 	openingStory(CharacterName);
 
+	getMurderWeapon();
 
-
-	system("pause");
-
-	return 0;
+	
 }
 
+//lets the user put their own character into the story
 string GetCharacterName()
 {
 	cout << "Please enter your character name: ";
@@ -54,21 +54,32 @@ void welcomeUser(string CharacterName)
 	cout << "You must find a murder weapon and solve the case.\n\n\n";
 }
 
+//meant to setup the story for the user
 void openingStory(string CharacterName)
 {
 	cout << "You are standing in apartment number 123, Which just so happens to be the scene\n";
 	cout << "of a terrable murder. your the ace detective " << CharacterName << " and it is your job to \n";
-	cout << "find the cause of death, murder weapon, and suspect.";
+	//hoping to add one the ability to find a cause of death and suspect
+	cout << "find the murder weapon.\n";
 }
 
-//string getMurderWeapon()
-//{
-	//// Create a collection of 10 words you had wrote down manually
-	//vector<string> weapons;  //collection of possible words to guess
-	//weapons.push_back("GUN");
-	//weapons.push_back("KNIFE");
-	//weapons.push_back("BAT");
 
-	//srand(static_cast<unsigned int>(time(0)));
-	//random_shuffle(weapons.begin(), weapons.end());
-//}
+//taken from the CIA assessment
+//tring to find a why to make it so the player has to see a random story and
+//then guess the right weapon used in the crime
+
+string getMurderWeapon()
+{
+	//Create a collection of 10 words you had wrote down manually
+	vector<string> weapons;  //collection of possible words to guess
+	weapons.push_back("GUN");
+	weapons.push_back("KNIFE");
+	weapons.push_back("BAT");
+
+	srand(static_cast<unsigned int>(time(0)));
+	random_shuffle(weapons.begin(), weapons.end());
+	
+
+	return string();
+}
+
