@@ -39,9 +39,16 @@ int main()
 	{
 		string story;
 		int choice1, choice2, choice3;
-		int randomBody;
+		int randomWeapon,body;
 
-		string storyArray[3] = {}
+		string bodyArray[3] = {"The body is filled with bullets.","The body is filled with stab wounds.","The body's skull is smashed in."}
+		string randomWeaponArray[3] = {"Gun","knife","bat"}
+
+		srand(time(NULL));
+		body = rand() % 3;
+		randomWeapon = rand() % 3;
+
+
 
 	}
 
