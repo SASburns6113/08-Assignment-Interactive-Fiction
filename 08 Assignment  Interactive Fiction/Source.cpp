@@ -3,6 +3,7 @@
 #include <vector>
 #include <ctime>
 #include <algorithm>
+#include <random>
 //Create an Interactive Fiction game.
 //Create a C++ program that uses more than one function.
 //Control all your functions through the main function.
@@ -35,22 +36,29 @@ int main()
 	//getMurderWeapon();
 
 	int play = 0;
-	do 
-	{
+	
 		string story;
 		int choice1, choice2, choice3;
-		int randomWeapon,body;
+		int userMenuForWeapons,body;
 
-		string bodyArray[3] = {"The body is filled with bullets.","The body is filled with stab wounds.","The body's skull is smashed in."}
-		string randomWeaponArray[3] = {"Gun","knife","bat"}
+		
 
-		srand(time(NULL));
-		body = rand() % 3;
-		randomWeapon = rand() % 3;
+		random_device rd; // obtain a random number from hardware
+		mt19937 eng(rd()); // seed the generator
+		uniform_int_distribution<> distr(0, 2); // define the range
+
+		int myRandNumber = distr(eng);
+		cout << myRandNumber;
+		
+		string bodyArray[3] = { "The body is filled with bullets.","The body is filled with stab wounds.","The body's skull is smashed in." };
+		string userMenuForWeaponsArray[3] = { "Gun","knife","bat" };
+		
+		cout << bodyArray[myRandNumber];
+		
+		system("pause");
+		return 0;
 
 
-
-	}
 
 	
 }
