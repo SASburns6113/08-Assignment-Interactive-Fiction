@@ -1,8 +1,6 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <ctime>
-#include <algorithm>
 #include <random>
 //Create an Interactive Fiction game.
 //Create a C++ program that uses more than one function.
@@ -16,9 +14,11 @@ using namespace std;
 string GetCharacterName();
 void welcomeUser(string CharacterName);
 void openingStory(string CharacterName);
-//string getMurderWeapon();
+void randStroyandChoose();
 int weapons;
 int body;
+
+
 
 
 int main()
@@ -33,46 +33,11 @@ int main()
 
 	openingStory(CharacterName);
 
-	
-	
-	
-
-		random_device rd; // obtain a random number from hardware
-		mt19937 eng(rd()); // seed the generator
-		uniform_int_distribution<> distr(0, 2); // define the range
-
-		int myRandNumber = distr(eng);
-		cout << myRandNumber;
-		
-		string bodyArray[3] = { "The body is filled with bullets.\n","The body is filled with stab wounds.\n","The body's skull is smashed in.\n" };
-		string selected = bodyArray[myRandNumber];
-		
-		cout << selected;
-
-		cout << "your weapons: Gun, Knife, Bat\n\n";
-		string choose;
-		cin >> choose;
-		if(choose == "gun" && selected == bodyArray[0])
-		{
-			cout << "You found the murder weapon! You Win!\n\n";
-		}
-		else if(choose == "bat" && selected == bodyArray[2])
-		{
-			cout << "You found the murder weapon!You Win!\n\n";
-		}
-		else if (choose == "knife" && selected == bodyArray[1]) 
-		{
-			cout << "You found the murder weapon!You Win!\n\n";
-		}
-		else if (choose != "gun", "bat", "knife")
-		{
-			cout << "invalid, pick gun, knife, or bat.\n\n";
-			
-		}
+	randStroyandChoose();
 		
 
-		system("pause");
-		return 0;
+	system("pause");
+	return 0;
 
 
 
@@ -91,6 +56,7 @@ string GetCharacterName()
 	
 }
 
+//this is the welcome function
 void welcomeUser(string CharacterName)
 {
 	cout << "\nWelcome " << CharacterName << " to Slaughterhouse.\n";
@@ -108,6 +74,42 @@ void openingStory(string CharacterName)
 	system("pause");
 }
 
+//this function randamizes the story and player choose
+void randStroyandChoose()
+{
+	random_device rd; // obtain a random number from hardware
+	mt19937 eng(rd()); // seed the generator
+	uniform_int_distribution<> distr(0, 2); // define the range
+
+	int myRandNumber = distr(eng);
+	cout << myRandNumber;
+
+	string bodyArray[3] = { "The body is filled with bullets.\n","The body is filled with stab wounds.\n","The body's skull is smashed in.\n" };
+	string selected = bodyArray[myRandNumber];
+
+	cout << selected;
+
+	cout << "your weapons: Gun, Knife, Bat\n\n";
+	string choose;
+	cin >> choose;
+	if (choose == "gun" && selected == bodyArray[0])
+	{
+		cout << "You found the murder weapon!\nYou Win!\n\n";
+	}
+	else if (choose == "bat" && selected == bodyArray[2])
+	{
+		cout << "You found the murder weapon!\nYou Win!\n\n";
+	}
+	else if (choose == "knife" && selected == bodyArray[1])
+	{
+		cout << "You found the murder weapon!\nYou Win!\n\n";
+	}
+	else if (choose != "gun", "bat", "knife")
+	{
+		cout << "invalid, pick gun, knife, or bat.\n\n";
+		
+	}
+}
 
 
 
