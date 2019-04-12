@@ -33,15 +33,9 @@ int main()
 
 	openingStory(CharacterName);
 
-	//getMurderWeapon();
-
-	int play = 0;
 	
-		string story;
-		int choice1, choice2, choice3;
-		int userMenuForWeapons,body;
-
-		
+	
+	
 
 		random_device rd; // obtain a random number from hardware
 		mt19937 eng(rd()); // seed the generator
@@ -50,11 +44,33 @@ int main()
 		int myRandNumber = distr(eng);
 		cout << myRandNumber;
 		
-		string bodyArray[3] = { "The body is filled with bullets.","The body is filled with stab wounds.","The body's skull is smashed in." };
-		string userMenuForWeaponsArray[3] = { "Gun","knife","bat" };
+		string bodyArray[3] = { "The body is filled with bullets.\n","The body is filled with stab wounds.\n","The body's skull is smashed in.\n" };
+		string selected = bodyArray[myRandNumber];
 		
-		cout << bodyArray[myRandNumber];
+		cout << selected;
+
+		cout << "your weapons: Gun, Knife, Bat\n\n";
+		string choose;
+		cin >> choose;
+		if(choose == "gun" && selected == bodyArray[0])
+		{
+			cout << "You found the murder weapon! You Win!\n\n";
+		}
+		else if(choose == "bat" && selected == bodyArray[2])
+		{
+			cout << "You found the murder weapon!You Win!\n\n";
+		}
+		else if (choose == "knife" && selected == bodyArray[1]) 
+		{
+			cout << "You found the murder weapon!You Win!\n\n";
+		}
+		else if (choose != "gun", "bat", "knife")
+		{
+			cout << "invalid, pick gun, knife, or bat.\n\n";
+			
+		}
 		
+
 		system("pause");
 		return 0;
 
@@ -79,6 +95,7 @@ void welcomeUser(string CharacterName)
 {
 	cout << "\nWelcome " << CharacterName << " to Slaughterhouse.\n";
 	cout << "You must find a murder weapon and solve the case.\n\n\n";
+	system("pause");
 }
 
 //meant to setup the story for the user
@@ -87,25 +104,10 @@ void openingStory(string CharacterName)
 	cout << "You are standing in apartment number 123, Which just so happens to be the scene\n";
 	cout << "of a terrable murder. your the ace detective " << CharacterName << " and it is your job to \n";
 	//hoping to add one the ability to find a cause of death and suspect
-	cout << "find the murder weapon.\n";
+	cout << "find the murder weapon.\n\n";
+	system("pause");
 }
 
 
-//tring to find a why to make it so the player has to see a random story and
-//then guess the right weapon used in the crime
 
-//string getMurderWeapon()
-//{
-	////Create a collection of 10 words you had wrote down manually
-	//vector<string> weapons;  //collection of possible words to guess
-	//weapons.push_back("GUN");
-	//weapons.push_back("KNIFE");
-	//weapons.push_back("BAT");
-
-	//srand(static_cast<unsigned int>(time(0)));
-	//random_shuffle(weapons.begin(), weapons.end());
-	
-
-	//return string();
-//}
 
